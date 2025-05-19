@@ -1,9 +1,11 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
 steps:
   # Install Firebase CLI
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install', '-g', 'firebase-tools']
     id: install-firebase
-  # Deploy to specific site using default service account
+
   - name: 'gcr.io/$PROJECT_ID/firebase'
     args: ['deploy', '--only', 'hosting:testingg', '--project', '637848627669']
     entrypoint: 'firebase'
