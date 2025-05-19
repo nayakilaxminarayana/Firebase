@@ -12,8 +12,14 @@ options:
 #     id: deploy-firebase
 
 steps:
-  # Install and deploy using Firebase CLI
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['install', '-g', 'firebase-tools', '&&', 'firebase', 'deploy', '--only', 'hosting:testiingg', '--project', '637848627669']
+    args: ['install', '-g', 'firebase-tools']
+    id: install-firebase
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'firebase deploy --only hosting:testingg --project 637848627669'
     id: deploy-firebase
 
