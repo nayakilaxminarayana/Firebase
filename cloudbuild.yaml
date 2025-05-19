@@ -10,4 +10,3 @@ steps:
     args: ['deploy', '--only', 'hosting:testingg', '--project', '637848627669']
     entrypoint: 'firebase'
     id: deploy-firebase
-timeout: 600s
