@@ -1,15 +1,15 @@
 options:
   logging: CLOUD_LOGGING_ONLY
-steps:
-  # Install Firebase CLI
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install', '-g', 'firebase-tools']
-    id: install-firebase
+# steps:
+#   # Install Firebase CLI
+#   - name: 'gcr.io/cloud-builders/npm'
+#     args: ['install', '-g', 'firebase-tools']
+#     id: install-firebase
 
-  - name: 'gcr.io/firebase-community/firebase-tools'
-    args: ['deploy', '--only', 'hosting:testiingg', '--project', '637848627669']
-    entrypoint: 'firebase'
-    id: deploy-firebase
+#   - name: 'gcr.io/firebase-community/firebase-tools'
+#     args: ['deploy', '--only', 'hosting:testiingg', '--project', '637848627669']
+#     entrypoint: 'firebase'
+#     id: deploy-firebase
 
 # steps:
 #   - name: 'gcr.io/cloud-builders/npm'
@@ -33,3 +33,16 @@ steps:
 #       - 'npm install -g firebase-tools && firebase deploy --only hosting:testiingg --project 637848627669'
 #     id: deploy-firebase
 
+
+steps:
+  # Install Firebase CLI using Node.js 20 image
+  - name: 'node:20-alpine'
+    entrypoint: 'npm'
+    args: ['install', '-g', 'firebase-tools']
+    id: install-firebase
+
+  # Deploy using the same image
+  - name: 'node:20-alpine'
+    entrypoint: 'firebase'
+    args: ['deploy', '--only', 'hosting:testiingg', '--project', '637848627669']
+    id: deploy-firebase
