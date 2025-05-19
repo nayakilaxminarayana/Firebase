@@ -6,7 +6,7 @@ steps:
     args: ['install', '-g', 'firebase-tools']
     id: install-firebase
 
-  - name: 'gcr.io/$PROJECT_ID/firebase'
+  - name: 'gcr.io/firebase-community/firebase-tools'
     args: ['deploy', '--only', 'hosting:testingg', '--project', '637848627669']
     entrypoint: 'firebase'
     id: deploy-firebase
