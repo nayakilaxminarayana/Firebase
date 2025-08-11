@@ -39,7 +39,7 @@ options:
 #   - name: 'node:20-alpine'
 #     entrypoint: 'npm'
 #     args: ['install', '-g', 'firebase-tools']
-#     id: install-firebase
+  id: install-firebase
 
 #   # Deploy using the same image
 #   - name: 'node:20-alpine'
