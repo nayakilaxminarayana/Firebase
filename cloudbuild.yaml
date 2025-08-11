@@ -46,6 +46,7 @@ options:
 #     entrypoint: 'firebase'
 #     args: ['deploy', '--only', 'hosting:testiingg', '--project', '637848627669']
 #     id: deploy-firebase
+#dont cosider
 
 
 steps:
